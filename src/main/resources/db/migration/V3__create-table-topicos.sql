@@ -1,12 +1,12 @@
-create table topicos(
-        id bigint not null auto_increment,
-        titulo varchar(100) not null,
-        mensaje varchar(255) not null,
-        fecha_de_creacion datetime not null,
-        status varchar(20) not null,
-        autor varchar(50) not null,
-        curso_id bigint not null,
+CREATE TABLE topicos (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(100) NOT NULL,
+    mensaje VARCHAR(255) NOT NULL,
+    fecha_de_creacion DATETIME NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    autor VARCHAR(50) NOT NULL,
+    curso_id BIGINT NOT NULL,
 
-        primary key(id),
-        constraint fk_topico_curso_id foreign key(curso_id) references cursos(id)
-)
+    PRIMARY KEY (id),
+    CONSTRAINT fk_topico_curso_id FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);

@@ -1,4 +1,4 @@
-package com.alura.forohub.entity.usuarios;
+package com.alura.forohub.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

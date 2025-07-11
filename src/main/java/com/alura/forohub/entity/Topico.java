@@ -1,6 +1,5 @@
-package com.alura.forohub.entity.topicos;
+package com.alura.forohub.entity;
 
-import com.alura.forohub.entity.Curso;
 import jakarta.persistence.*;
 import lombok.Data;
 

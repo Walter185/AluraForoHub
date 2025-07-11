@@ -1,4 +1,4 @@
-package com.alura.forohub.entity.usuarios;
+package com.alura.forohub.auth.dto;
 
 public record JwtResponse(String token) {}
 
