@@ -3,6 +3,7 @@ package com.alura.forohub.topico.controller;
 import com.alura.forohub.topico.dto.TopicoDetalleDTO;
 import com.alura.forohub.topico.dto.TopicoRequest;
 import com.alura.forohub.topico.dto.TopicoResponse;
+import com.alura.forohub.topico.dto.TopicoUpdateRequest;
 import com.alura.forohub.topico.service.TopicoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,4 +29,18 @@ public class TopicoController {
         List<TopicoDetalleDTO> topicos = topicoService.listarTopicos();
         return ResponseEntity.ok(topicos);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TopicoResponse> actualizarTopico(@PathVariable Long id,
+                                                           @RequestBody TopicoUpdateRequest request) {
+        TopicoResponse actualizado = topicoService.actualizarTopico(id, request);
+        return ResponseEntity.ok(actualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarTopico(@PathVariable Long id) {
+        topicoService.eliminarTopico(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

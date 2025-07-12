@@ -6,6 +6,7 @@ import com.alura.forohub.curso.repository.CursoRepository;
 import com.alura.forohub.topico.dto.TopicoDetalleDTO;
 import com.alura.forohub.topico.dto.TopicoRequest;
 import com.alura.forohub.topico.dto.TopicoResponse;
+import com.alura.forohub.topico.dto.TopicoUpdateRequest;
 import com.alura.forohub.topico.entity.StatusTopico;
 import com.alura.forohub.topico.entity.Topico;
 import com.alura.forohub.topico.repository.TopicoRepository;
@@ -63,4 +64,35 @@ public class TopicoService {
                 .map(TopicoDetalleDTO::new)
                 .toList();
     }
+
+    @Transactional
+    public TopicoResponse actualizarTopico(Long id, TopicoUpdateRequest request) {
+        Topico topico = topicoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tópico no encontrado"));
+
+        if (request.titulo() != null) topico.setTitulo(request.titulo());
+        if (request.mensaje() != null) topico.setMensaje(request.mensaje());
+        if (request.status() != null) topico.setStatus(StatusTopico.valueOf(request.status()));
+
+        topicoRepository.save(topico);
+
+        return new TopicoResponse(
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensaje(),
+                topico.getFechaDeCreacion(),
+                topico.getStatus().name(),
+                topico.getAutor().getNombre(),
+                topico.getCurso().getNombre()
+        );
+    }
+
+    @Transactional
+    public void eliminarTopico(Long id) {
+        if (!topicoRepository.existsById(id)) {
+            throw new RuntimeException("Tópico no encontrado");
+        }
+        topicoRepository.deleteById(id);
+    }
+
 }
