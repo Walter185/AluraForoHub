@@ -1,11 +1,17 @@
--- Cursos base
-INSERT INTO cursos (nombre, categoria) VALUES
-('Spring Boot', 'Backend'),
-('React JS', 'Frontend');
+-- Inserta cursos
+INSERT INTO cursos (id, nombre, categoria)
+VALUES (1, 'Spring Boot', 'Programación'),
+       (2, 'React', 'Frontend');
 
--- Tópicos de ejemplo
-INSERT INTO topicos (titulo, mensaje, fecha_de_creacion, status, autor, curso_id) VALUES
-('¿Cómo resolver error 500?', 'Tengo un error 500 al hacer login. ¿Alguna idea?', NOW(), 'NO_RESPONDIDO', 'walter', 1),
-('Mejoras en el rendimiento', '¿Qué técnicas usan para mejorar rendimiento en Spring Boot?', NOW(), 'RESPONDIDO', 'lucia', 1),
-('Error al conectar con MySQL', 'No se conecta con la base de datos, dice timeout', NOW(), 'NO_RESPONDIDO', 'juan', 1),
-('Validaciones en DTOs', '¿Cómo validar campos nulos en un DTO con anotaciones?', NOW(), 'CERRADO', 'ana', 2);
+-- Inserta usuarios (con nombre incluido)
+INSERT INTO usuarios (id, nombre, username, password, role)
+VALUES
+  (1, 'Juan Pérez', 'juan123', '123456', 'USER'),
+  (2, 'Ana Gómez', 'ana456', '123456', 'USER');
+
+
+-- Inserta tópicos
+INSERT INTO topicos (titulo, mensaje, fecha_de_creacion, status, autor_id, curso_id)
+VALUES
+  ('Primer Tópico', 'Mensaje sobre Spring Boot', NOW(), 'NO_RESPONDIDO', 1, 1),
+  ('Segundo Tópico', 'Duda con React', NOW(), 'NO_RESPONDIDO', 2, 2);

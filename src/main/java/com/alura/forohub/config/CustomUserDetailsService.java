@@ -1,7 +1,7 @@
 package com.alura.forohub.config;
 
-import com.alura.forohub.entity.Usuario;
-import com.alura.forohub.repository.UsuarioRepository;
+import com.alura.forohub.usuario.entity.Usuario;
+import com.alura.forohub.usuario.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

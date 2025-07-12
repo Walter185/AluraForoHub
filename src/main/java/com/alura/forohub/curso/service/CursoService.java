@@ -1,4 +1,4 @@
-package com.alura.forohub.service;
+package com.alura.forohub.curso.service;
 
 public class CursoService {
 }

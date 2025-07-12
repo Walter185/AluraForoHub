@@ -1,6 +1,6 @@
-package com.alura.forohub.repository;
+package com.alura.forohub.usuario.repository;
 
-import com.alura.forohub.entity.Usuario;
+import com.alura.forohub.usuario.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
