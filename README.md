@@ -66,7 +66,7 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:8080/topics
 
 ## 👨‍💻 Author
 
-Walter Liendo — EthKipu Project — 2025
+Walter Liendo — Alura Latam — 2025
 
 ---
 
